@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Task List
+    <a style="float: right" class="btn btn-primary" href="{% url "list:task-create" %}">
+      Add Task
+    </a>
+  </h1>
+  <ul class="list-group list-group-flush">
+    {% for task in task_list %}
+      <li class="list-group-item">
+        <h5>
+          {{ task.content }}
+          {% if task.done %}
+            <span class="badge bg-success">Done</span>
+            <a style="float:right;" class="btn btn-secondary" href="{% url "to_do_app:toggle-task-completion" pk=task.id %}">Undo</a>
+          {% else %}
+            <span class="badge bg-danger">Not Done</span>
+            <a style="float:right;" class="btn btn-success" href="{% url "to_do_app:toggle-task-completion" pk=task.id %}">Complete</a>
+          {% endif %}
+        </h5>
+        <p>
+          Created: {{ task.created_at }}
+          {% if task.deadline and not task.done %}
+           | Deadline: {{ task.deadline }}
+          {% endif %}
+        </p>
+        <p>
+          <strong>
+            Tags:
+          </strong>
+          {% for tag in task.tags.all %}
+            {{ tag.name }}
+          {% endfor %}
+        </p>
+        <p>
+          <a style="text-decoration: none" href="{% url "list:task-update" pk=task.id %}">Update</a>
+          <a style="text-decoration: none" href="{% url "list:task-delete" pk=task.id %}">Delete</a>
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
