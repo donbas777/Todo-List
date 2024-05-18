@@ -2,8 +2,14 @@
 venv
 __pycache__/
 __pycache__
+__pycрache__/
+__pycрache__
 db.sqlite3
 TodoList/__pycache__/
 list/__pycache__/
+TodoList/__pycрache__/
+list/__pycрache__/
 TodoList/__pycache__
 list/__pycache__
+TodoList/__pycрache__
+list/__pycрache__
