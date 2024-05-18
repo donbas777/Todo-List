@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Tags:
+    <a style="float: right" class="btn btn-primary" href="{% url "list:tag-create" %}">
+      Add
+    </a>
+  </h1>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    {% for tag in tag_list %}
+      <tr>
+        <td>{{ tag }}</td>
+        <td>
+          <a class="btn btn-secondary" href="{% url "list:tag-update" pk=tag.id %}">Update</a>
+        </td>
+        <td>
+          <a class="btn btn-secondary" href="{% url "list:tag-delete" pk=tag.id %}">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
