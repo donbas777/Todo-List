@@ -1,9 +1,9 @@
 .idea
 venv
-__pychache__/
-__pychache__
+__pycache__/
+__pycache__
 db.sqlite3
-TodoList/__pychache__/
-list/__pychache__/
-TodoList/__pychache__
-list/__pychache__
+TodoList/__pycache__/
+list/__pycache__/
+TodoList/__pycache__
+list/__pycache__
